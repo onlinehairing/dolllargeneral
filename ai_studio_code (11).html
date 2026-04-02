@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dollar General E-Gift | RGB Cyber Portal</title>
+    <style>
+        /* 2026 RGB & Clean Spacious Theme */
+        :root {
+            --bg-deep: #050609;
+            --card-bg: rgba(20, 25, 35, 0.5); /* Slightly more transparent for a cleaner look */
+            --cyber-cyan: #00f3ff;
+            --cyber-purple: #bc13fe;
+            --neon-green: #00ff88;
+            --yt-red: #ff0000;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Segoe UI', sans-serif; }
+
+        body { background-color: #000; color: var(--text-main); display: flex; justify-content: center; }
+
+        /* Dark Ambient Background */
+        .mobile-container {
+            max-width: 480px; width: 100%; background: var(--bg-deep); min-height: 100vh;
+            position: relative; overflow-x: hidden; padding-bottom: 80px;
+            background-image: 
+                radial-gradient(circle at 20% 10%, rgba(0, 243, 255, 0.12), transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(188, 19, 254, 0.12), transparent 40%);
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.05);
+        }
+
+        /* ========================================= */
+        /* 1. RGB LIGHTING HEADER                    */
+        /* ========================================= */
+        header {
+            background: rgba(5, 6, 9, 0.95); padding: 20px 20px; text-align: center;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.2); position: sticky; top: 0; z-index: 100;
+            backdrop-filter: blur(15px); box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .logo { 
+            font-size: 24px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; 
+            background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 300% auto;
+            color: transparent; -webkit-background-clip: text; background-clip: text;
+            animation: rgb-shift 5s linear infinite;
+        }
+        .logo span { font-size: 13px; display: block; margin-top: 8px; font-weight: bold; letter-spacing: 4px; color: #fff; -webkit-text-fill-color: #fff; text-shadow: 0 0 10px var(--cyber-cyan);}
+
+        @keyframes rgb-shift { to { background-position: 300% center; } }
+
+        /* ========================================= */
+        /* 2. SPACIOUS HERO SECTION                  */
+        /* ========================================= */
+        .hero { padding: 50px 20px 40px; text-align: center; }
+        
+        .badge { background: rgba(0, 243, 255, 0.1); color: var(--cyber-cyan); padding: 8px 18px; border-radius: 6px; font-size: 12px; font-weight: 800; display: inline-block; margin-bottom: 30px; border: 1px solid var(--cyber-cyan); letter-spacing: 2px; font-family: monospace; }
+        
+        h1 { font-size: 28px; line-height: 1.5; margin-bottom: 20px; font-weight: 900; text-transform: uppercase; }
+        h1 span { color: var(--cyber-cyan); display: block; font-size: 36px; margin-top: 10px; text-shadow: 0 0 20px rgba(0, 243, 255, 0.4); }
+        
+        .sub-text { color: var(--text-muted); font-size: 15px; margin-bottom: 35px; line-height: 1.8; padding: 0 10px; }
+
+        /* Cyber Countdown Timer */
+        .timer-container { background: rgba(0, 243, 255, 0.05); border: 1px dashed var(--cyber-cyan); border-radius: 12px; padding: 18px; margin-bottom: 35px; }
+        .timer-text { font-size: 13px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+        .timer-time { font-size: 30px; font-weight: 900; color: var(--cyber-cyan); text-shadow: 0 0 15px var(--cyber-cyan); font-family: 'Courier New', monospace; animation: pulse 1s infinite; }
+
+        /* DIGITAL CYBER CARD DESIGN */
+        .digital-card {
+            background: linear-gradient(135deg, #090b14 0%, #02040a 100%);
+            border-radius: 20px; padding: 30px 25px; margin: 0 auto 40px auto; position: relative; overflow: hidden;
+            border: 2px solid var(--cyber-cyan);
+            box-shadow: 0 20px 40px rgba(0, 243, 255, 0.15), inset 0 0 30px rgba(188, 19, 254, 0.1);
+            background-image: linear-gradient(rgba(0,243,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,243,255,0.03) 1px, transparent 1px);
+            background-size: 20px 20px; text-align: left;
+        }
+        .digital-card::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: linear-gradient(transparent, rgba(188, 19, 254, 0.15), transparent);
+            transform: rotate(45deg); animation: scan-line 4s infinite linear; pointer-events: none;
+        }
+        @keyframes scan-line { 0% { top: -100%; left: -100%; } 100% { top: 100%; left: 100%; } }
+        
+        .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .chip { width: 48px; height: 35px; background: linear-gradient(135deg, #e0e0e0, #888); border-radius: 6px; position: relative; border: 1px solid #fff; box-shadow: inset 0 0 5px rgba(0,0,0,0.5); }
+        .chip::after { content:''; position:absolute; top:50%; left:0; width:100%; height:1px; background: rgba(0,0,0,0.4); }
+        .chip::before { content:''; position:absolute; left:50%; top:0; height:100%; width:1px; background: rgba(0,0,0,0.4); }
+        
+        .card-brand { font-size: 18px; font-weight: 900; color: #fff; letter-spacing: 2px; font-family: monospace; text-shadow: 0 0 8px var(--cyber-cyan); }
+        .card-balance { font-size: 50px; font-weight: 900; color: #fff; text-shadow: 0 0 20px var(--cyber-cyan); font-family: 'Courier New', monospace; margin-bottom: 10px; }
+        .card-desc { font-size: 12px; color: var(--cyber-cyan); letter-spacing: 4px; font-weight: bold; text-transform: uppercase; }
+        
+        .barcode { margin-top: 25px; height: 40px; width: 100%; background: repeating-linear-gradient(90deg, #fff, #fff 2px, transparent 2px, transparent 4px, #fff 4px, #fff 5px, transparent 5px, transparent 8px); opacity: 0.6; }
+
+        .trust-banner { background: rgba(0, 243, 255, 0.08); border: 1px dashed var(--cyber-cyan); border-radius: 10px; padding: 15px; text-align: center; margin-bottom: 40px; }
+        .trust-banner p { color: var(--cyber-cyan); font-size: 14px; font-weight: bold; letter-spacing: 1px; }
+
+        /* ========================================= */
+        /* 3. BUTTON DESIGNS WITH SPACING            */
+        /* ========================================= */
+        .btn-rgb {
+            display: block; width: 100%; padding: 24px; margin-bottom: 20px;
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+            background-size: 300%;
+            color: #fff; font-size: 20px; font-weight: 900; text-align: center;
+            border: 2px solid rgba(255,255,255,0.8); border-radius: 16px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;
+            animation: rgb-shift 3s linear infinite;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,255,255,0.3);
+            text-decoration: none; transition: transform 0.2s;
+        }
+        .btn-rgb:active { transform: scale(0.97); }
+
+        .btn-youtube {
+            display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; padding: 20px; 
+            background: var(--yt-red); color: #fff; font-size: 16px; font-weight: 900; text-align: center; border: 2px solid #ff4d4d;
+            border-radius: 12px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; text-decoration: none;
+            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.2); margin-top: 30px; transition: 0.3s;
+        }
+
+        .btn-cyber {
+            display: block; width: 100%; padding: 22px; background: rgba(0, 243, 255, 0.05); margin-top: 30px;
+            color: var(--cyber-cyan); font-size: 18px; font-weight: 900; text-align: center; 
+            border: 2px dashed var(--cyber-cyan); border-radius: 12px; cursor: pointer; text-transform: uppercase; letter-spacing: 2px;
+            box-shadow: inset 0 0 15px rgba(0, 243, 255, 0.1), 0 0 20px rgba(0, 243, 255, 0.1); backdrop-filter: blur(5px);
+        }
+
+        /* ========================================= */
+        /* 4. SEPARATE FLOATING CONTENT BOXES        */
+        /* ========================================= */
+        .content-box { 
+            padding: 45px 25px; 
+            background: var(--card-bg); 
+            border: 1px solid rgba(255,255,255,0.05); 
+            border-radius: 20px; 
+            margin: 0 15px 40px 15px; /* Creates distinct separate islands */
+            backdrop-filter: blur(10px); 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .box-title { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 35px; text-align: center; text-transform: uppercase; letter-spacing: 1px; }
+        .box-title span { color: var(--cyber-purple); }
+
+        /* Steps */
+        .steps-container { margin-bottom: 10px; }
+        .step-item { display: flex; align-items: flex-start; gap: 20px; background: rgba(0,0,0,0.3); padding: 25px; border-radius: 16px; margin-bottom: 20px; border-left: 4px solid var(--cyber-cyan); box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .step-num { background: var(--cyber-cyan); color: #000; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; flex-shrink: 0; box-shadow: 0 0 15px var(--cyber-cyan); }
+        .step-text h4 { color: #fff; font-size: 17px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+        .step-text p { color: var(--text-muted); font-size: 14px; line-height: 1.7; }
+        .step-text p strong { color: #fff; font-weight: bold; }
+
+        /* Benefit Grid */
+        .benefit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .benefit-item { background: rgba(0,0,0,0.3); padding: 25px 15px; border-radius: 16px; text-align: center; border-bottom: 3px solid var(--cyber-cyan); box-shadow: 0 10px 25px rgba(0,0,0,0.2);}
+        .benefit-item span { display: block; font-size: 32px; margin-bottom: 15px; }
+        .benefit-item p { font-size: 13px; font-weight: bold; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Program Rules */
+        .req-list { list-style: none; }
+        .req-list li { margin-bottom: 25px; display: flex; align-items: flex-start; gap: 15px; font-size: 14px; color: var(--text-muted); line-height: 1.8; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 12px; border-left: 4px solid var(--cyber-purple); }
+        .req-list li strong { color: #fff; display: block; margin-bottom: 8px; font-size: 15px; text-transform: uppercase; letter-spacing: 1px;}
+
+        /* VERIFIED PARTNERS SECTION */
+        .partner-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 30px; }
+        .partner-logo { background: rgba(255,255,255,0.02); padding: 22px 10px; border-radius: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.05); font-size: 18px; filter: grayscale(100%); transition: 0.3s; }
+        .partner-logo:hover { filter: grayscale(0%); border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }
+        
+        /* High Demand Warning */
+        .demand-warning { text-align: center; margin-bottom: 35px; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 16px; }
+        .demand-warning h4 { color: var(--cyber-cyan); font-weight: 900; font-size: 18px; margin-bottom: 12px; animation: flash 1s infinite; letter-spacing: 1px; }
+        @keyframes flash { 50% { opacity: 0.4; } }
+        .demand-warning p { color: var(--text-muted); font-size: 15px; line-height: 1.8; }
+
+        /* Slide-Up Toast */
+        .live-toast {
+            position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px;
+            background: rgba(10, 15, 25, 0.98); border: 1px solid var(--cyber-cyan); border-left: 6px solid var(--cyber-cyan);
+            padding: 15px 20px; border-radius: 16px; box-shadow: 0 15px 40px rgba(0, 243, 255, 0.2); z-index: 1000;
+            display: flex; align-items: center; gap: 18px; backdrop-filter: blur(10px);
+            transition: bottom 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .live-toast.show { bottom: 25px; }
+        .toast-img { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--cyber-cyan); object-fit: cover; }
+        .toast-content h5 { color: #fff; font-size: 15px; margin-bottom: 5px; font-weight: bold; }
+        .toast-content p { color: var(--cyber-cyan); font-size: 13px; font-weight: 600; }
+        .toast-time { position: absolute; top: 18px; right: 20px; font-size: 11px; color: #777; }
+
+        /* Loading Screen */
+        #step-main { display: block; }
+        #ai-system, #final-step { display: none; padding: 60px 20px; text-align: center; min-height: 100vh; background: var(--bg-deep); }
+        .loader-ring { width: 100px; height: 100px; border: 4px dashed var(--cyber-cyan); border-radius: 50%; animation: spin 2s linear infinite; margin: 0 auto 40px auto; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .progress-box { width: 100%; height: 10px; background: rgba(255,255,255,0.05); margin-top: 40px; border-radius: 10px; overflow:hidden;}
+        .progress-bar { height: 100%; background: var(--cyber-cyan); width: 0%; box-shadow: 0 0 20px var(--cyber-cyan); transition: width 0.3s; }
+        
+        .footer { padding: 40px 25px 100px; text-align: justify; font-size: 11px; color: #555; line-height: 1.8; margin-top: 20px;}
+    </style>
+</head>
+<body>
+
+<div class="mobile-container">
+
+    <!-- RGB HEADER -->
+    <header>
+        <div class="logo">Dollar General</div>
+        <div class="logo" style="font-size: 11px; margin-top:8px; background: none; color:var(--cyber-cyan); animation:none; filter:none; letter-spacing: 4px;">💳 DIGITAL REWARD PORTAL</div>
+    </header>
+
+    <!-- Slide-Up Review System -->
+    <div class="live-toast" id="live-toast">
+        <img id="toast-img" class="toast-img" src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
+        <div class="toast-content">
+            <h5 id="toast-name">Sarah M. (Texas)</h5>
+            <p>Verification Complete - $1000 Sent!</p>
+        </div>
+        <div class="toast-time" id="toast-time">Just now</div>
+    </div>
+
+    <!-- MAIN PAGE -->
+    <div id="step-main">
+        
+        <!-- SPACIOUS HERO -->
+        <div class="hero">
+            <div class="badge">SYS: IP_AUTHORIZED</div>
+            <h1>Claim Your Digital <br><span>$1000 Store Credit</span></h1>
+            
+            <div class="timer-container">
+                <div class="timer-text">Portal Closes In:</div>
+                <div class="timer-time" id="timer">04:59</div>
+            </div>
+
+            <!-- DIGITAL CYBER CARD -->
+            <div class="digital-card">
+                <div class="card-header">
+                    <div class="chip"></div>
+                    <div class="card-brand">DIGITAL_SYS</div>
+                </div>
+                <div class="card-balance">$1000.00</div>
+                <div class="card-desc">E-Gift Digital Balance</div>
+                <div class="barcode"></div>
+            </div>
+
+            <div class="trust-banner">
+                <p>🛡️ NO CREDIT CARD REQUIRED • 100% FREE</p>
+            </div>
+
+            <button class="btn-rgb" onclick="startSystem()">CLAIM REWARD NOW ➔</button>
+            <p style="color: var(--text-muted); font-size: 13px; margin-top: 15px;">Guaranteed Safe & Secure Registration</p>
+        </div>
+
+        <!-- ISLAND 1: How Easy It Is -->
+        <div class="content-box">
+            <h3 class="box-title">How To Get Your <span style="color:var(--cyber-cyan);">$1000</span></h3>
+            
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div class="step-text">
+                        <h4>Click to Start</h4>
+                        <p>Initiate the secure connection by clicking the glowing RGB claim button above.</p>
+                    </div>
+                </div>
+                
+                <div class="step-item" style="border-left-color: var(--cyber-purple);">
+                    <div class="step-num" style="background: var(--cyber-purple); color:#fff; box-shadow: 0 0 15px var(--cyber-purple);">2</div>
+                    <div class="step-text">
+                        <h4>Submit Basic Details</h4>
+                        <p>Simply submit your <strong>Name, Address, Phone Number, and Email</strong> on the final sponsor page.</p>
+                    </div>
+                </div>
+
+                <div class="step-item" style="border-left-color: var(--neon-green);">
+                    <div class="step-num" style="background: var(--neon-green); color:#000; box-shadow: 0 0 15px var(--neon-green);">3</div>
+                    <div class="step-text">
+                        <h4>Receive Instant Email</h4>
+                        <p>Once your details are verified, the $1000 digital barcode is instantly sent to your inbox!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- YOUTUBE LINK BUTTON -->
+            <a href="https://www.aplfb8trk.com/3KJT4X3Z/CJKL7CK/?sub2=alina" class="btn-youtube" target="_blank">
+                ▶ CLAIM YOUR REWARD NOW 🚀
+            </a>
+        </div>
+
+        <!-- ISLAND 2: Benefit Grid -->
+        <div class="content-box">
+            <h3 class="box-title">Spend Your <span style="color:var(--cyber-cyan);">Reward</span> On</h3>
+            <div class="benefit-grid">
+                <div class="benefit-item"><span>🛒</span><p>Groceries</p></div>
+                <div class="benefit-item"><span>🧼</span><p>Cleaning</p></div>
+                <div class="benefit-item"><span>💄</span><p>Beauty</p></div>
+                <div class="benefit-item"><span>🧸</span><p>Toys & More</p></div>
+            </div>
+            
+            <button class="btn-cyber" onclick="startSystem()">[ VERIFY MY DETAILS ]</button>
+        </div>
+
+        <!-- ISLAND 3: Program Rules -->
+        <div class="content-box">
+            <h3 class="box-title" style="color: #fff;">Program <span style="color:var(--cyber-purple);">Rules</span></h3>
+            <ul class="req-list">
+                <li>
+                    <div>
+                        <strong>1. Human Verification Check</strong>
+                        To prevent bot abuse, you must submit basic details (Name, Email, etc.) to prove you are human.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>2. US Location Required</strong>
+                        This specific $1000 digital balance is exclusively reserved for users accessing the portal from the United States.
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <strong>3. Instant Email Delivery</strong>
+                        Once the details are submitted, your $1000 barcode will be sent directly to your inbox.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- ISLAND 4: VERIFIED PARTNERS -->
+        <div class="content-box">
+            <h3 class="box-title">Verified <span style="color:var(--cyber-cyan);">Partners</span></h3>
+            <p style="text-align: center; font-size: 14px; color: var(--text-muted); line-height: 1.6;">We collaborate with industry leaders to ensure secure and instant reward delivery.</p>
+            
+            <div class="partner-grid">
+                <div class="partner-logo" style="color: #1a1f71; font-weight: 900; font-style: italic;">
+                    <span style="color:#f7b600;">V</span>isa Prepaid
+                </div>
+                <div class="partner-logo" style="color: #eb001b; font-weight: 900;">
+                    Mastercard
+                </div>
+                <div class="partner-logo" style="color: #003087; font-weight: 900; font-style: italic;">
+                    PayPal <span style="color:#009cde;">Secure</span>
+                </div>
+                <div class="partner-logo" style="color: #FF9900; font-weight: 900;">
+                    AWS <span style="font-size:10px; color:#fff;">Encrypted</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ISLAND 5: Final Push & RGB Button -->
+        <div class="content-box">
+            <div class="demand-warning">
+                <h4>⚠️ LIMITED SPOTS REMAINING</h4>
+                <p>The portal closes soon. Delaying may result in your $1000 allocation being given to the next user in queue. Enter your details immediately.</p>
+            </div>
+            
+            <button class="btn-rgb" onclick="startSystem()">ENTER DETAILS NOW ➔</button>
+        </div>
+
+        <!-- SPACIOUS FOOTER -->
+        <div class="footer">
+            <strong style="color: #777; font-size: 12px;">INDEPENDENT REWARD PROGRAM DISCLAIMER:</strong><br><br>
+            This website is an independent promotional marketing portal. We are strictly NOT affiliated with, sponsored by, endorsed by, or associated with Dollar General Inc., Visa, Mastercard, or PayPal. All product names, logos, brands, and trademarks are the property of their respective owners. <br><br>
+            <strong>HOW TO CLAIM:</strong> Users must follow all on-screen instructions, register with valid information (Name, Address, Phone, Email), and successfully complete the required sponsor deals to earn the reward. Void where prohibited by law. Must be 18+.<br><br>
+            © 2026 National Digital Rewards Network. All rights reserved. Secure Node US-East-1.
+        </div>
+
+    </div> <!-- End Step Main -->
+
+    <!-- Verification Loading Screen -->
+    <div id="ai-system">
+        <h2 style="font-size: 28px; margin-bottom: 50px; color: #fff; font-weight: 900; letter-spacing: 3px; font-family: monospace;">AUTHENTICATING...</h2>
+        <div class="loader-ring"></div>
+        <div id="ai-text" style="font-size: 17px; color: var(--cyber-cyan); margin-bottom: 30px; font-weight: bold; font-family: monospace;">Establishing Secure Connection...</div>
+        <p style="font-size: 14px; color: var(--text-muted); background: rgba(0,243,255,0.05); border: 1px dashed var(--cyber-cyan); padding: 15px; display: inline-block; border-radius: 8px;">⚠️ DO NOT CLOSE BROWSER</p>
+        
+        <div class="progress-box">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+    </div>
+
+    <!-- Final Clearance Screen -->
+    <div id="final-step">
+        <div style="font-size: 100px; text-shadow: 0 0 50px var(--neon-green); margin-bottom: 25px;">✅</div>
+        <h2 style="color: var(--text-main); margin-bottom: 25px; font-size: 32px; font-weight: 900; text-transform: uppercase;">Connection Secure!</h2>
+        <p style="color: var(--text-muted); font-size: 16px; margin-bottom: 40px; line-height: 1.8;">Our system has reserved your <strong>$1000 Reward</strong>. Click the final button below and submit your <strong>Name, Address, Phone, and Email</strong> to receive your reward.</p>
+        
+        <!-- ============================================== -->
+        <!-- FINAL BUTTON: RGB STYLE YOUTUBE LINK           -->
+        <!-- এখানে আপনার ইউটিউব বা অফার লিংক দিন                -->
+        <!-- ============================================== -->
+        <a href="https://www.aplfb8trk.com/3KJT4X3Z/CJKL7CK/?sub2=alina" class="btn-rgb" target="_blank">SUBMIT MY DETAILS NOW</a>
+        <!-- ============================================== -->
+        
+        <p style="font-size: 13px; color: #666; margin-top: 40px; font-weight: bold; letter-spacing: 2px;">STATUS: AWAITING USER DETAILS</p>
+    </div>
+
+</div>
+
+<script>
+    // Timer Logic
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            display.textContent = minutes + ":" + seconds;
+            if (--timer < 0) { timer = 0; display.style.color = "red"; }
+        }, 1000);
+    }
+    window.onload = function () {
+        var fiveMinutes = 60 * 5 - 1;
+        var display = document.querySelector('#timer');
+        startTimer(fiveMinutes, display);
+    };
+
+    // System Loader
+    function startSystem() {
+        document.getElementById('step-main').style.display = 'none';
+        document.getElementById('live-toast').style.display = 'none'; 
+        document.getElementById('ai-system').style.display = 'block';
+        window.scrollTo(0, 0);
+
+        let progress = 0;
+        let pBar = document.getElementById('progress');
+        let statusText = document.getElementById('ai-text');
+        const phases = [
+            "Analyzing Connection...", "Checking $1000 Inventory...", 
+            "Reserving Allocation Card...", "Activating 256-Bit Encryption...", 
+            "Opening Registration Gateway..."
+        ];
+        let textIndex = 0;
+
+        let interval = setInterval(() => {
+            progress += 2;
+            pBar.style.width = progress + "%";
+            if (progress % 20 === 0 && textIndex < phases.length) {
+                statusText.innerText = phases[textIndex];
+                textIndex++;
+            }
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    document.getElementById('ai-system').style.display = 'none';
+                    document.getElementById('final-step').style.display = 'block';
+                }, 800);
+            }
+        }, 110); 
+    }
+
+    // SLIDE-UP POPUP SYSTEM (Matching Names with Genders)
+    const users = [
+        { name: "David", gender: "men" },
+        { name: "Michael", gender: "men" },
+        { name: "Christopher", gender: "men" },
+        { name: "Joshua", gender: "men" },
+        { name: "James", gender: "men" },
+        { name: "Jessica", gender: "women" },
+        { name: "Amanda", gender: "women" },
+        { name: "Ashley", gender: "women" },
+        { name: "Sarah", gender: "women" },
+        { name: "Emily", gender: "women" }
+    ];
+    
+    const states = ["TX", "CA", "NY", "FL", "OH", "GA", "IL", "AZ", "NC", "MI"];
+    const popActions = [
+        "Submitted details & got $1000!", 
+        "Verification Complete - $1000 Sent!", 
+        "Just received the E-Gift via Email",
+        "Successfully claimed $1000 Reward"
+    ];
+
+    function showLivePopup() {
+        if (document.getElementById('step-main').style.display === 'none') return;
+
+        let toast = document.getElementById('live-toast');
+        let imgEl = document.getElementById('toast-img');
+        let nameEl = document.getElementById('toast-name');
+        let contentEl = document.querySelector('.toast-content p');
+
+        let randomUser = users[Math.floor(Math.random() * users.length)];
+        let rState = states[Math.floor(Math.random() * states.length)];
+        let rAction = popActions[Math.floor(Math.random() * popActions.length)];
+
+        let picNum = Math.floor(Math.random() * 90) + 1;
+        
+        imgEl.src = `https://randomuser.me/api/portraits/${randomUser.gender}/${picNum}.jpg`;
+        nameEl.innerText = `${randomUser.name} (${rState})`;
+        contentEl.innerText = rAction;
+
+        toast.classList.add('show');
+        setTimeout(() => { toast.classList.remove('show'); }, 4500); 
+    }
+
+    setTimeout(() => {
+        showLivePopup();
+        setInterval(showLivePopup, 9000);
+    }, 2000);
+</script>
+
+</body>
+</html>
